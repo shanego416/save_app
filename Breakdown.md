@@ -16,6 +16,6 @@ Every 2 weeks they'll pick a number (low if they're low on funds, high if they h
 When they've put the amount of funds away they can check that number off the board.
 There will be an "Amount Saved" and "Amount Remaining" display as well.
 
-- There will be a log in with a user name and password so the user can access their personal board and history at any time.
+- There will be a login with a username and password so the user can access their personal board and history at any time.
 
 
