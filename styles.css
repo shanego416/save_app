@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
+.main-container {
+  border: 2px solid black;
+  margin-top: 2%;
+}
+
+.btn {
+  font-size: large;
+  font-weight: 500;
+}
+
+.footer {
+  margin-bottom: 0px;
+}
