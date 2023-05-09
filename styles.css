@@ -15,3 +15,10 @@
 .footer {
   margin-bottom: 0px;
 }
+
+.active {
+  background-color: rgb(40, 40, 40) !important;
+  color: rgb(93, 199, 236) !important;
+  text-decoration: line-through;
+  border: none;
+}
