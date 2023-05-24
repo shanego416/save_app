@@ -58,3 +58,7 @@ body {
 .bottom-btn {
   border-bottom: 1px solid black !important;
 }
+
+.clear {
+  background-color: #05bfdb;
+}

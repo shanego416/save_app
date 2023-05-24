@@ -1,6 +1,7 @@
 const buttons = document.querySelectorAll(".btn");
 const amountRemaining = document.querySelector("#amountRemaining");
 const amountSaved = document.querySelector("#amountSaved");
+const clearButton = document.getElementById("clearButton");
 
 let buttonClicked = {};
 let buttonNum = {};
@@ -8,8 +9,10 @@ let buttonNum = {};
 if (localStorage.getItem("Tester") !== null) {
   amountSaved.textContent = localStorage.getItem("Tester");
 } else {
-  amountSaved.textContent = "0.00";
+  amountSaved.textContent = 0.0;
 }
+
+clearButton.addEventListener("click", clearTable);
 
 // ASK COLLIN ABOUT the " => " OPERATOR
 Array.from(buttons).forEach((element) => {
@@ -49,5 +52,14 @@ function updateAmountRemaining() {
   buttonNum[this.id] = num;
 }
 
-// UPDATE AMOUNT SAVED
-//localStorage.clear();
+function clearTable() {
+  buttons.forEach((button) => {
+    button.classList.remove("active");
+  });
+  localStorage.clear();
+  amountSaved.textContent = "0.00";
+  amountRemaining.textContent = "2000";
+}
+
+// buttonClicked = false for all buttons when "clear" is clicked
+// negaive number bug
