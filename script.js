@@ -6,16 +6,20 @@ const clearButton = document.getElementById("clearButton");
 let buttonClicked = {};
 let buttonNum = {};
 
-if (localStorage.getItem("Tester") !== null) {
-  amountSaved.textContent = localStorage.getItem("Tester");
-} else {
-  amountSaved.textContent = 0.0;
+amountSaved.textContent = localStorage.getItem("Tester") || 0.0;
+
+if (localStorage.getItem("tester_2")) {
+  buttonClicked = JSON.parse(localStorage.getItem("Tester_2"));
 }
 
+console.log(buttonClicked);
 clearButton.addEventListener("click", clearTable);
 
-// ASK COLLIN ABOUT the " => " OPERATOR
 Array.from(buttons).forEach((element) => {
+  if (buttonClicked[element.id]) {
+    element.classList.toggle("active");
+  }
+  // event listeners
   element.addEventListener("click", paid);
   element.addEventListener("click", updateAmountRemaining);
 });
@@ -27,7 +31,7 @@ function paid() {
 
 // UPDATE AMOUNT REMAINING
 function updateAmountRemaining() {
-  let newButtonNum = this.innerText.substring(1);
+  let newButtonNum = this.innerText.substring(1); // Could pass below
   let num = parseInt(newButtonNum);
   let amountRemainNum = parseInt(amountRemaining.textContent);
   let amountSavedNum = parseInt(amountSaved.textContent);
@@ -50,16 +54,18 @@ function updateAmountRemaining() {
     localStorage.setItem("Tester", amountSaved.textContent);
   }
   buttonNum[this.id] = num;
+
+  const stringObj = JSON.stringify(buttonClicked);
+  localStorage.setItem("Tester_2", stringObj);
+  console.log(stringObj);
 }
 
 function clearTable() {
   buttons.forEach((button) => {
     button.classList.remove("active");
   });
+  buttonClicked = {};
   localStorage.clear();
   amountSaved.textContent = "0.00";
   amountRemaining.textContent = "2000";
 }
-
-// buttonClicked = false for all buttons when "clear" is clicked
-// negaive number bug
