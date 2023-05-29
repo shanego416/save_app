@@ -6,7 +6,10 @@ const clearButton = document.getElementById("clearButton");
 let buttonClicked = {};
 let buttonNum = {};
 
-amountSaved.textContent = localStorage.getItem("Tester") || 0.0;
+amountSaved.textContent =
+  localStorage.getItem("localStorageAmountSaved") || 0.0;
+amountRemaining.textContent =
+  localStorage.getItem("localStorageAmountRemaining") || 2000;
 
 if (localStorage.getItem("tester_2")) {
   buttonClicked = JSON.parse(localStorage.getItem("Tester_2"));
@@ -43,7 +46,11 @@ function updateAmountRemaining() {
     amountSaved.textContent = savedNum;
     buttonClicked[this.id] = false;
     console.log(1);
-    localStorage.setItem("Tester", amountSaved.textContent);
+    localStorage.setItem("localStorageAmountSaved", amountSaved.textContent);
+    localStorage.setItem(
+      "localStorageAmountRemaining",
+      amountRemaining.textContent
+    );
   } else {
     let remainNum = amountRemainNum - num;
     amountRemaining.textContent = remainNum;
@@ -51,7 +58,11 @@ function updateAmountRemaining() {
     amountSaved.textContent = savedNum;
     buttonClicked[this.id] = true;
     console.log(2);
-    localStorage.setItem("Tester", amountSaved.textContent);
+    localStorage.setItem("localStorageAmountSaved", amountSaved.textContent);
+    localStorage.setItem(
+      "localStorageAmountRemaining",
+      amountRemaining.textContent
+    );
   }
   buttonNum[this.id] = num;
 
