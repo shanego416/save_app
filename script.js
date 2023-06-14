@@ -12,7 +12,7 @@ amountRemaining.textContent =
   localStorage.getItem("localStorageAmountRemaining") || 2000;
 
 if (localStorage.getItem("tester_2")) {
-  buttonClicked = JSON.parse(localStorage.getItem("Tester_2"));
+  buttonClicked = JSON.parse(localStorage.getItem("tester_2"));
 }
 
 console.log(buttonClicked);
@@ -67,7 +67,7 @@ function updateAmountRemaining() {
   buttonNum[this.id] = num;
 
   const stringObj = JSON.stringify(buttonClicked);
-  localStorage.setItem("Tester_2", stringObj);
+  localStorage.setItem("tester_2", stringObj);
   console.log(stringObj);
 }
 
